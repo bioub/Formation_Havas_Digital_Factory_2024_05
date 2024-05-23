@@ -29,7 +29,7 @@ fs.readFile('01-fs-sync-async.js', (err, buffer) => {
 // |
 // |
 // |                                                                      [log   ][log        ]
-// |[readFileSync                 ][log][readFile][readFile] ..⟳..        [taskJs][taskPackage]
+// |[readFileSync XXXXXXXXXXXXXXXX][log][readFile][readFile] ..⟳..        [taskJs][taskPackage]
 // +0ms---------------------------2ms----------------------------------------5ms---->
 
 
