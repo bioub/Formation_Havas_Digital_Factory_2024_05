@@ -1,12 +1,14 @@
 {
   "devDependencies": {
     "http-server": "^13.1.0",
-    "md5": "^2.3.0",
     "terser": "^5.31.0"
   },
   "scripts": {
     "serve:dev": "http-server src",
     "serve:prod": "http-server dist",
-    "build": "node build.mjs"
+    "build": "node build.mjs --minify --hash"
+  },
+  "dependencies": {
+    "minimist": "^1.2.8"
   }
 }
