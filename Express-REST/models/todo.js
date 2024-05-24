@@ -50,6 +50,12 @@ async function findById(id) {
 }
 
 function create(todo) {
+  // Exercice
+  // En utilisant une requete préparée (la méthode execute comme dans findById)
+  // Exécuter une requête INSERT pour créer la todo
+  // Comme précédemment retourner un object todo avec le nouvel id
+  // Exemple INSERT : https://sidorares.github.io/node-mysql2/docs/examples/queries/simple-queries/insert#querysql
+
   todo.id = generateId();
 
   todos.push(todo);
