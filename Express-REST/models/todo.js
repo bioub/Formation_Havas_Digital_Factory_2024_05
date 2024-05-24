@@ -49,18 +49,32 @@ async function findById(id) {
   return results[0];
 }
 
-function create(todo) {
+async function create(todo) {
   // Exercice
   // En utilisant une requete préparée (la méthode execute comme dans findById)
   // Exécuter une requête INSERT pour créer la todo
   // Comme précédemment retourner un object todo avec le nouvel id
   // Exemple INSERT : https://sidorares.github.io/node-mysql2/docs/examples/queries/simple-queries/insert#querysql
 
-  todo.id = generateId();
+  // todo.id = generateId();
+  // todos.push(todo);
+  // return Promise.resolve(todo);
+  const connection = await mysql.createConnection({
+    host: '127.0.0.1',
+    user: 'root',
+    password: '',
+    database: 'formation_havas_2024_05',
+  });
 
-  todos.push(todo);
+  const [result] = await connection.execute(
+    'INSERT INTO `todos` (`title`, `completed`) VALUES (?, ?)',
+    [todo.title, todo.completed]
+  );
 
-  return Promise.resolve(todo);
+  return {
+    id: result.insertId,
+    ...todo
+  };
 }
 
 function findByIdAndDelete(id) {

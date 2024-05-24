@@ -1,6 +1,10 @@
 const uuid = require('uuid');
 
-const tokens = ['d4973653-9895-4123-a7dd-3e1387d0fbde'];
+const tokens = [];
+
+if (process.env.NODE_ENV !== 'production') {
+  tokens.push('d4973653-9895-4123-a7dd-3e1387d0fbde');
+}
 
 const user = {
   username: 'romain',
@@ -8,10 +12,10 @@ const user = {
 };
 
 /**
- * 
- * @param {object} credentials 
- * @param {string} credentials.username 
- * @param {string} credentials.password 
+ *
+ * @param {object} credentials
+ * @param {string} credentials.username
+ * @param {string} credentials.password
  */
 function login(credentials) {
   if (

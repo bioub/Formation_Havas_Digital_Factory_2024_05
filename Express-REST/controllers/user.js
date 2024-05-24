@@ -10,7 +10,7 @@ exports.login = async (req, res, next) => {
     const token = await User.login(req.body);
 
     if (!token) {
-      res.statusCode = 400;
+      res.statusCode = 422;
       return res.json({
         msg: 'Wrong username/password',
       });
